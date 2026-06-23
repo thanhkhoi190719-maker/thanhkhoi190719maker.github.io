@@ -1,0 +1,459 @@
+```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Người Bà Tài Giỏi Ở Vùng Saga</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(180deg,#f8f5ef,#ffffff);
+color:#333;
+overflow-x:hidden;
+}
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(31,41,55,.95);
+padding:15px;
+z-index:999;
+text-align:center;
+backdrop-filter:blur(10px);
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 12px;
+font-weight:bold;
+transition:.3s;
+}
+
+nav a:hover{
+color:#facc15;
+}
+
+header{
+height:100vh;
+background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url("saga.jpg");
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+padding:20px;
+}
+
+header h1{
+font-size:65px;
+margin-bottom:20px;
+text-shadow:3px 3px 10px rgba(0,0,0,.5);
+}
+
+header p{
+font-size:22px;
+max-width:900px;
+line-height:1.8;
+}
+
+section{
+padding:110px 10%;
+min-height:100vh;
+animation:fadeUp 1s ease;
+}
+
+h2{
+text-align:center;
+font-size:42px;
+margin-bottom:30px;
+color:#1f2937;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.12);
+margin-bottom:25px;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-12px);
+box-shadow:0 20px 40px rgba(0,0,0,.2);
+}
+
+.img{
+display:block;
+width:80%;
+max-width:700px;
+margin:25px auto;
+border-radius:20px;
+box-shadow:0 15px 35px rgba(0,0,0,.2);
+transition:.5s;
+}
+
+.img:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 25px 50px rgba(0,0,0,.3);
+}
+
+.float{
+animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+100%{transform:translateY(0);}
+}
+
+.timeline{
+border-left:5px solid #1f2937;
+padding-left:30px;
+}
+
+.event{
+background:white;
+padding:20px;
+margin-bottom:20px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+transition:.4s;
+}
+
+.event:hover{
+transform:translateX(10px);
+}
+
+.year{
+font-size:22px;
+font-weight:bold;
+color:#1f2937;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.box{
+background:white;
+padding:20px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.12);
+cursor:pointer;
+transition:.4s;
+}
+
+.box:hover{
+transform:translateY(-15px) scale(1.03);
+box-shadow:0 25px 45px rgba(0,0,0,.25);
+}
+
+.box img{
+width:100%;
+border-radius:15px;
+margin-top:10px;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.gallery img{
+width:100%;
+height:320px;
+object-fit:cover;
+border-radius:20px;
+transition:.5s;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+button{
+padding:12px 25px;
+border:none;
+background:#1f2937;
+color:white;
+border-radius:10px;
+cursor:pointer;
+margin-top:15px;
+}
+
+button:hover{
+background:#374151;
+}
+
+.popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.75);
+justify-content:center;
+align-items:center;
+z-index:2000;
+}
+
+.popup-content{
+background:white;
+padding:30px;
+width:80%;
+max-width:650px;
+border-radius:20px;
+position:relative;
+animation:popup .4s;
+}
+
+@keyframes popup{
+from{
+opacity:0;
+transform:scale(.7);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+.close{
+position:absolute;
+top:10px;
+right:20px;
+font-size:30px;
+cursor:pointer;
+color:red;
+}
+
+.top{
+position:fixed;
+right:20px;
+bottom:20px;
+padding:15px;
+border:none;
+border-radius:50%;
+background:#1f2937;
+color:white;
+cursor:pointer;
+}
+
+footer{
+background:#1f2937;
+color:white;
+text-align:center;
+padding:30px;
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="#home">Trang Chủ</a>
+<a href="#author">Tác Giả</a>
+<a href="#history">Lịch Sử</a>
+<a href="#japan">Bản Gốc</a>
+<a href="#vietnam">Bản Việt</a>
+<a href="#gallery">Thư Viện</a>
+</nav>
+
+<header id="home">
+<div>
+<h1>NGƯỜI BÀ TÀI GIỎI Ở VÙNG SAGA</h1>
+
+<p>
+Tên gốc: 佐賀のがばいばあちゃん (Saga no Gabai Baachan)<br>
+Một tác phẩm nổi tiếng của Yoshichi Shimada kể về tuổi thơ bên người bà đầy nghị lực tại vùng Saga, Nhật Bản.
+</p>
+
+<button onclick="showPopup('Gabai là từ địa phương của tỉnh Saga, có nghĩa là cực kỳ, phi thường hoặc tuyệt vời.')">
+Gabai nghĩa là gì?
+</button>
+</div>
+</header>
+
+<section id="author">
+
+<h2>Tác Giả Yoshichi Shimada</h2>
+
+<img src="sáng tác.jpg" class="img float">
+
+<div class="card">
+Yoshichi Shimada sinh năm 1950 tại Nhật Bản. Sau chiến tranh, ông được gửi tới sống cùng bà ngoại tại vùng Saga. Những ký ức tuổi thơ ấy đã trở thành nguồn cảm hứng để ông sáng tác nên Người Bà Tài Giỏi Ở Vùng Saga.
+</div>
+
+</section>
+
+<section id="history">
+
+<h2>Lịch Sử Xuất Bản</h2>
+
+<div class="timeline">
+
+<div class="event">
+<div class="year">2003</div>
+Xuất bản bản sách chữ đầu tiên tại Nhật Bản.
+</div>
+
+<div class="event">
+<div class="year">2004</div>
+Ra mắt bản bỏ túi Tokuma Shoten.
+</div>
+
+<div class="event">
+<div class="year">2006 - 2010</div>
+Truyện tranh gồm 6 tập do Saburo Ishikawa minh họa.
+</div>
+
+<div class="event">
+<div class="year">2012</div>
+Xuất bản lần đầu tại Việt Nam.
+</div>
+
+<div class="event">
+<div class="year">2016 - 2019</div>
+Các đợt tái bản lớn.
+</div>
+
+<div class="event">
+<div class="year">2021</div>
+SkyBooks phát hành bộ truyện tranh 6 tập.
+</div>
+
+<div class="event">
+<div class="year">2023</div>
+Phiên bản bìa cứng lưu niệm.
+</div>
+
+</div>
+
+</section>
+
+<section id="japan">
+
+<h2>Phiên Bản Gốc Nhật Bản</h2>
+
+<img src="bìa gốc.jpg" class="img float">
+
+<div class="card">
+Tên gốc của tác phẩm là Saga no Gabai Baachan. Đây là phiên bản đầu tiên được xuất bản năm 2003 tại Nhật Bản.
+</div>
+
+<div class="card">
+“Ở Saga, Gabai nghĩa là cực kỳ tuyệt vời. Bà tôi chính là người bà cực kỳ tài giỏi nhất thế giới.”
+</div>
+
+</section>
+
+<section id="vietnam">
+
+<h2>Các Phiên Bản Việt Nam</h2>
+
+<div class="grid">
+
+<div class="box" onclick="showPopup('Phiên bản đầu tiên tại Việt Nam được phát hành năm 2012 và nhanh chóng được độc giả yêu thích.')">
+<h3>Phiên Bản 2012</h3>
+<img src="Phiên bản đầu tiên Việt Nam (2012).jpg">
+</div>
+
+<div class="box" onclick="showPopup('Năm 2021, SkyBooks phát hành bộ truyện tranh đầy đủ 6 tập dựa trên hồi ký của Yoshichi Shimada.')">
+<h3>SkyBooks 2021</h3>
+<img src="Phiên bản truyện tranh SkyBooks (2021).jpg">
+</div>
+
+</div>
+
+</section>
+
+<section id="gallery">
+
+<h2>Thư Viện Hình Ảnh</h2>
+
+<div class="gallery">
+<img src="saga.jpg">
+<img src="sáng tác.jpg">
+<img src="bìa gốc.jpg">
+<img src="Phiên bản đầu tiên Việt Nam (2012).jpg">
+<img src="Phiên bản truyện tranh SkyBooks (2021).jpg">
+</div>
+
+<div class="card">
+<h3>Giá Trị Của Tác Phẩm</h3>
+<br>
+• Tình bà cháu thiêng liêng<br>
+• Sự lạc quan trong khó khăn<br>
+• Biết trân trọng những điều giản dị<br>
+• Không đầu hàng trước nghịch cảnh<br><br>
+
+Người Bà Tài Giỏi Ở Vùng Saga không chỉ là một cuốn sách mà còn là bài học sâu sắc về cách sống hạnh phúc và ý nghĩa.
+</div>
+
+</section>
+
+<footer>
+<h3>Website Giới Thiệu Người Bà Tài Giỏi Ở Vùng Saga</h3>
+<p>Thiết kế bằng HTML • CSS • JavaScript</p>
+</footer>
+
+<button class="top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="popup" id="popup">
+<div class="popup-content">
+<span class="close" onclick="closePopup()">&times;</span>
+<p id="popupText"></p>
+</div>
+</div>
+
+<script>
+function showPopup(text){
+document.getElementById('popup').style.display='flex';
+document.getElementById('popupText').innerHTML=text;
+}
+
+function closePopup(){
+document.getElementById('popup').style.display='none';
+}
+
+window.onclick=function(e){
+if(e.target==document.getElementById('popup')){
+closePopup();
+}
+}
+</script>
+
+</body>
+</html>
+```
